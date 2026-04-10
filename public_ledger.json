@@ -2,21 +2,30 @@
   "engine": "DATA-SP v1.0",
   "description": "Pre-resolution event intelligence scores. Posted before each BLS release. SHA-256 verified source.",
   "events": []
-}
-DATA-SP Signal · CPI March 2026
-2026-04-10 · 08:30 EST · 21:30 SGT
-
-Actual YoY: 2.43% (or 3.29%) — consensus 3.4% — MISS
-Source: api.bls.gov · G3 verified ✓
-
-C_headline:   0.750
-C_core:       0.820
-C_revisions:  0.300
-C_composite:  0.729
-
-SHA-256: 9d93c21f...
-Ledger: github.com/flatworld13/data-sp-ledger
-
-Data only · not financial advice
-#DataSP #CPI #PredictionMarkets
+{
+  "event_id": "CPI_2026-04-10",
+  "event_type": "CPI",
+  "release_date": "2026-04-10",
+  "posted_at_est": "2026-04-10T08:30:00",
+  "posted_at_sgt": "2026-04-10T21:30:00",
+  "source": "api.bls.gov",
+  "G3_verified": true,
+  "sha256_hash": "9d93c21fa14f8f2c4f8f2aa3524ac73c09bfff11e81af285746d00d6dd6a196f",
+  "signals": {
+    "C_headline": 0.75,
+    "C_core": 0.82,
+    "C_revisions": 0.3,
+    "C_composite": 0.729
+  },
+  "raw_data": {
+    "actual_yoy": 3.29,
+    "consensus": 3.4,
+    "surprise": 0.11,
+    "core_actual": 2.6,
+    "core_consensus": 2.7,
+    "revision_level": 0
+  },
+  "outcome": "pending",
+  "correct": null,
+  "disclaimer": "Data only. Not financial advice."
 }
