@@ -25,7 +25,7 @@
     "core_consensus": 2.7,
     "revision_level": 0
   },
-  "outcome": "pending",
-  "correct": null,
+  "outcome": "MISS",
+  "correct": true,
   "disclaimer": "Data only. Not financial advice."
 }
