@@ -1,44 +1,54 @@
-# DATA-SP — Macro Signal Engine
+# VERDICT by DATA-SP
 
-Verified · timestamped · Brier-calibrated
+Macro prediction scoring · SHA-256 timestamped · Brier calibrated · Primary source only
 
 ---
 
-## Track record
+## Live track record
 
-| Event | Date | Signal | Outcome | Correct |
-|-------|------|--------|---------|---------|
-| CPI March 2026 | 2026-04-10 | MISS · C_composite 0.729 | Confirmed MISS | ✓ |
+| Event | Date | Signal | Outcome | Correct | Brier |
+|-------|------|--------|---------|---------|-------|
+| CPI March 2026 | 2026-04-10 | MISS · 0.729 | Confirmed MISS | ✓ | 0.074 |
 
-**1/1 correct · Brier score updating**
+**Live events: 1 · Correct: 1 · Brier: 0.074**
 
 Full ledger: [`public_ledger.json`](./public_ledger.json)
 
 ---
 
-## What it does
+## Simulated backtest — formula v1.0
 
-Fetches macro data from primary government sources (BLS · Fed · SEC),
-scores the surprise against consensus, and publishes a confidence-weighted
-JSON signal with cryptographic timestamp — before prediction markets reprice.
+Formula locked: 2026-04-16 · [GitHub commit](./public_ledger.json)
+Events scored: 123 · 61 CPI · 62 NFP
+Period: 2021–2026
+Source: api.bls.gov primary data
 
----
+| Metric | All events | CPI only | NFP only |
+|--------|-----------|---------|---------|
+| Events | 123 | 61 | 62 |
+| Accuracy | 87.0% | 73.8% | 100% |
+| Brier score | 0.101 | 0.145 | 0.058 |
+| Random baseline | 0.250 | 0.250 | 0.250 |
+| High conviction >0.80 | 13/13 · 100% | 13/13 · 100% | 0 events |
 
-## Next events
+Full backtest: [`verdict_backtest_results.json`](./verdict_backtest_results.json)
 
-| Event | Date | Time EST |
-|-------|------|----------|
-| FOMC minutes | 2026-04-22 | 14:00 |
-| NFP | 2026-05-02 | 08:30 |
-
----
-
-## Access
-
-Free: this ledger · updated after every event
-
-Paid: real-time API · $49/mo · DM [@your_x_handle](https://x.com) to request trial
+> Simulated backtest — formula weights locked before running.
+> Simulated results do not guarantee future performance.
 
 ---
 
-*Data only. Not financial advice.*
+## How it works
+
+Every macro release has two numbers.
+
+The prediction — what economists forecast in advance.
+The actual — what the government measured and published.
+
+VERDICT is the judge sitting between them. It scores the gap, verifies the source, timestamps the verdict before markets reprice, and publishes the score publicly so any bot can act with calibrated confidence.
+
+**VERDICT does not predict. It scores predictions.**
+
+---
+
+## Formula v1.0
