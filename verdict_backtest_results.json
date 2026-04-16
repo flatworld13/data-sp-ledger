@@ -1,0 +1,2793 @@
+{
+  "title": "VERDICT by DATA-SP \u2014 Historical Backtest",
+  "formula_version": "v1.0",
+  "formula_weights": {
+    "C_headline": 0.45,
+    "C_core": 0.3,
+    "C_revisions": 0.15,
+    "G3_verified": 0.1
+  },
+  "backtest_type": "simulated",
+  "important_notice": "This is a SIMULATED BACKTEST. Formula weights were locked on 2026-04-16 (GitHub commit). Historical consensus values sourced from Econoday/Bloomberg archives. Results are validated against publicly available BLS primary data. Simulated results do not guarantee future performance.",
+  "date_range": "2021-01 to 2026-03",
+  "primary_source": "api.bls.gov",
+  "generated_at": "2026-04-16T06:20:20Z",
+  "summary": {
+    "all_events": {
+      "total_events": 123,
+      "correct": 107,
+      "accuracy": 0.87,
+      "avg_brier_score": 0.1009,
+      "avg_c_composite": 0.741,
+      "random_brier_baseline": 0.25,
+      "miss_count": 33,
+      "beat_count": 90,
+      "in_line_count": 0,
+      "high_conviction": {
+        "threshold": "> 0.80",
+        "count": 13,
+        "correct": 13,
+        "accuracy": 1.0
+      },
+      "medium_conviction": {
+        "threshold": "0.60 \u2013 0.80",
+        "count": 103,
+        "correct": 94,
+        "accuracy": 0.913
+      }
+    },
+    "cpi_only": {
+      "total_events": 61,
+      "correct": 45,
+      "accuracy": 0.738,
+      "avg_brier_score": 0.1449,
+      "avg_c_composite": 0.723,
+      "random_brier_baseline": 0.25,
+      "miss_count": 33,
+      "beat_count": 28,
+      "in_line_count": 0,
+      "high_conviction": {
+        "threshold": "> 0.80",
+        "count": 13,
+        "correct": 13,
+        "accuracy": 1.0
+      },
+      "medium_conviction": {
+        "threshold": "0.60 \u2013 0.80",
+        "count": 41,
+        "correct": 32,
+        "accuracy": 0.78
+      }
+    },
+    "nfp_only": {
+      "total_events": 62,
+      "correct": 62,
+      "accuracy": 1.0,
+      "avg_brier_score": 0.0576,
+      "avg_c_composite": 0.76,
+      "random_brier_baseline": 0.25,
+      "miss_count": 0,
+      "beat_count": 62,
+      "in_line_count": 0,
+      "high_conviction": {
+        "threshold": "> 0.80",
+        "count": 0,
+        "correct": 0,
+        "accuracy": 0
+      },
+      "medium_conviction": {
+        "threshold": "0.60 \u2013 0.80",
+        "count": 62,
+        "correct": 62,
+        "accuracy": 1.0
+      }
+    }
+  },
+  "events": [
+    {
+      "event_id": "CPI_2021-02",
+      "event_type": "CPI",
+      "period": "2021-02",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.574,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.649
+      },
+      "raw_data": {
+        "actual_yoy": 1.67,
+        "consensus": 1.7,
+        "surprise": 0.03,
+        "core_actual": 1.28,
+        "core_consensus": 1.4
+      },
+      "outcome": "MISS",
+      "correct": false,
+      "brier_score": 0.4212,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2021-02",
+      "event_type": "NFP",
+      "period": "2021-02",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 143380,
+        "consensus_k": 182,
+        "surprise_k": 143198
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2021-03",
+      "event_type": "CPI",
+      "period": "2021-03",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.846,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.772
+      },
+      "raw_data": {
+        "actual_yoy": 2.67,
+        "consensus": 2.5,
+        "surprise": 0.17,
+        "core_actual": 1.65,
+        "core_consensus": 1.6
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.052,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2021-03",
+      "event_type": "NFP",
+      "period": "2021-03",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 144232,
+        "consensus_k": 660,
+        "surprise_k": 143572
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2021-04",
+      "event_type": "CPI",
+      "period": "2021-04",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.995,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.839
+      },
+      "raw_data": {
+        "actual_yoy": 4.13,
+        "consensus": 3.6,
+        "surprise": 0.53,
+        "core_actual": 2.98,
+        "core_consensus": 2.3
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0259,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2021-04",
+      "event_type": "NFP",
+      "period": "2021-04",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 144587,
+        "consensus_k": 978,
+        "surprise_k": 143609
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2021-05",
+      "event_type": "CPI",
+      "period": "2021-05",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.9,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.796
+      },
+      "raw_data": {
+        "actual_yoy": 4.92,
+        "consensus": 4.7,
+        "surprise": 0.22,
+        "core_actual": 3.79,
+        "core_consensus": 3.4
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0416,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2021-05",
+      "event_type": "NFP",
+      "period": "2021-05",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 145065,
+        "consensus_k": 650,
+        "surprise_k": 144415
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2021-06",
+      "event_type": "CPI",
+      "period": "2021-06",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.982,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.833
+      },
+      "raw_data": {
+        "actual_yoy": 5.3,
+        "consensus": 4.9,
+        "surprise": 0.4,
+        "core_actual": 4.44,
+        "core_consensus": 4.0
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0279,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2021-06",
+      "event_type": "NFP",
+      "period": "2021-06",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 145820,
+        "consensus_k": 700,
+        "surprise_k": 145120
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2021-07",
+      "event_type": "CPI",
+      "period": "2021-07",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.622,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.671
+      },
+      "raw_data": {
+        "actual_yoy": 5.25,
+        "consensus": 5.3,
+        "surprise": 0.05,
+        "core_actual": 4.21,
+        "core_consensus": 4.3
+      },
+      "outcome": "MISS",
+      "correct": false,
+      "brier_score": 0.4502,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2021-07",
+      "event_type": "NFP",
+      "period": "2021-07",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 146762,
+        "consensus_k": 870,
+        "surprise_k": 145892
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2021-08",
+      "event_type": "CPI",
+      "period": "2021-08",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.818,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.759
+      },
+      "raw_data": {
+        "actual_yoy": 5.15,
+        "consensus": 5.3,
+        "surprise": 0.15,
+        "core_actual": 3.94,
+        "core_consensus": 4.2
+      },
+      "outcome": "MISS",
+      "correct": true,
+      "brier_score": 0.0581,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2021-08",
+      "event_type": "NFP",
+      "period": "2021-08",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 147314,
+        "consensus_k": 750,
+        "surprise_k": 146564
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2021-09",
+      "event_type": "CPI",
+      "period": "2021-09",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.622,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.59
+      },
+      "raw_data": {
+        "actual_yoy": 5.35,
+        "consensus": 5.3,
+        "surprise": 0.05,
+        "core_actual": 4.0,
+        "core_consensus": 4.0
+      },
+      "outcome": "BEAT",
+      "correct": false,
+      "brier_score": 0.3481,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2021-09",
+      "event_type": "NFP",
+      "period": "2021-09",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 147771,
+        "consensus_k": 488,
+        "surprise_k": 147283
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2021-10",
+      "event_type": "CPI",
+      "period": "2021-10",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.988,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.836
+      },
+      "raw_data": {
+        "actual_yoy": 6.24,
+        "consensus": 5.8,
+        "surprise": 0.44,
+        "core_actual": 4.59,
+        "core_consensus": 4.3
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0269,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2021-10",
+      "event_type": "NFP",
+      "period": "2021-10",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 148572,
+        "consensus_k": 450,
+        "surprise_k": 148122
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2021-11",
+      "event_type": "CPI",
+      "period": "2021-11",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.881,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.787
+      },
+      "raw_data": {
+        "actual_yoy": 6.9,
+        "consensus": 6.7,
+        "surprise": 0.2,
+        "core_actual": 4.97,
+        "core_consensus": 4.9
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0454,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2021-11",
+      "event_type": "NFP",
+      "period": "2021-11",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 149230,
+        "consensus_k": 550,
+        "surprise_k": 148680
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2021-12",
+      "event_type": "CPI",
+      "period": "2021-12",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.846,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.772
+      },
+      "raw_data": {
+        "actual_yoy": 7.17,
+        "consensus": 7.0,
+        "surprise": 0.17,
+        "core_actual": 5.49,
+        "core_consensus": 5.4
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.052,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2021-12",
+      "event_type": "NFP",
+      "period": "2021-12",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 149816,
+        "consensus_k": 400,
+        "surprise_k": 149416
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2022-01",
+      "event_type": "CPI",
+      "period": "2022-01",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.973,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.829
+      },
+      "raw_data": {
+        "actual_yoy": 7.56,
+        "consensus": 7.2,
+        "surprise": 0.36,
+        "core_actual": 6.05,
+        "core_consensus": 5.9
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0292,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2022-01",
+      "event_type": "NFP",
+      "period": "2022-01",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 150006,
+        "consensus_k": 150,
+        "surprise_k": 149856
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2022-02",
+      "event_type": "CPI",
+      "period": "2022-02",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.802,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.752
+      },
+      "raw_data": {
+        "actual_yoy": 7.94,
+        "consensus": 7.8,
+        "surprise": 0.14,
+        "core_actual": 6.46,
+        "core_consensus": 6.4
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0615,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2022-02",
+      "event_type": "NFP",
+      "period": "2022-02",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 150825,
+        "consensus_k": 400,
+        "surprise_k": 150425
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2022-03",
+      "event_type": "CPI",
+      "period": "2022-03",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.846,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.691
+      },
+      "raw_data": {
+        "actual_yoy": 8.57,
+        "consensus": 8.4,
+        "surprise": 0.17,
+        "core_actual": 6.48,
+        "core_consensus": 6.5
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0955,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2022-03",
+      "event_type": "NFP",
+      "period": "2022-03",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 151315,
+        "consensus_k": 490,
+        "surprise_k": 150825
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2022-04",
+      "event_type": "CPI",
+      "period": "2022-04",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.786,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.745
+      },
+      "raw_data": {
+        "actual_yoy": 8.23,
+        "consensus": 8.1,
+        "surprise": 0.13,
+        "core_actual": 6.16,
+        "core_consensus": 6.0
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.065,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2022-04",
+      "event_type": "NFP",
+      "period": "2022-04",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 151623,
+        "consensus_k": 380,
+        "surprise_k": 151243
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2022-05",
+      "event_type": "CPI",
+      "period": "2022-05",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.917,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.804
+      },
+      "raw_data": {
+        "actual_yoy": 8.54,
+        "consensus": 8.3,
+        "surprise": 0.24,
+        "core_actual": 6.03,
+        "core_consensus": 5.9
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0384,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2022-05",
+      "event_type": "NFP",
+      "period": "2022-05",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 151924,
+        "consensus_k": 325,
+        "surprise_k": 151599
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2022-06",
+      "event_type": "CPI",
+      "period": "2022-06",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.858,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.777
+      },
+      "raw_data": {
+        "actual_yoy": 8.98,
+        "consensus": 8.8,
+        "surprise": 0.18,
+        "core_actual": 5.91,
+        "core_consensus": 5.7
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0497,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2022-06",
+      "event_type": "NFP",
+      "period": "2022-06",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 152358,
+        "consensus_k": 268,
+        "surprise_k": 152090
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2022-07",
+      "event_type": "CPI",
+      "period": "2022-07",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.917,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.723
+      },
+      "raw_data": {
+        "actual_yoy": 8.46,
+        "consensus": 8.7,
+        "surprise": 0.24,
+        "core_actual": 5.9,
+        "core_consensus": 5.9
+      },
+      "outcome": "MISS",
+      "correct": true,
+      "brier_score": 0.0767,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2022-07",
+      "event_type": "NFP",
+      "period": "2022-07",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 153072,
+        "consensus_k": 250,
+        "surprise_k": 152822
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2022-08",
+      "event_type": "CPI",
+      "period": "2022-08",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.769,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.737
+      },
+      "raw_data": {
+        "actual_yoy": 8.22,
+        "consensus": 8.1,
+        "surprise": 0.12,
+        "core_actual": 6.29,
+        "core_consensus": 6.1
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0692,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2022-08",
+      "event_type": "NFP",
+      "period": "2022-08",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 153362,
+        "consensus_k": 300,
+        "surprise_k": 153062
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2022-09",
+      "event_type": "CPI",
+      "period": "2022-09",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.711,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.711
+      },
+      "raw_data": {
+        "actual_yoy": 8.19,
+        "consensus": 8.1,
+        "surprise": 0.09,
+        "core_actual": 6.62,
+        "core_consensus": 6.5
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0835,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2022-09",
+      "event_type": "NFP",
+      "period": "2022-09",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 153582,
+        "consensus_k": 255,
+        "surprise_k": 153327
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2022-10",
+      "event_type": "CPI",
+      "period": "2022-10",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.802,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.752
+      },
+      "raw_data": {
+        "actual_yoy": 7.76,
+        "consensus": 7.9,
+        "surprise": 0.14,
+        "core_actual": 6.29,
+        "core_consensus": 6.5
+      },
+      "outcome": "MISS",
+      "correct": true,
+      "brier_score": 0.0615,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2022-10",
+      "event_type": "NFP",
+      "period": "2022-10",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 153939,
+        "consensus_k": 200,
+        "surprise_k": 153739
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2022-11",
+      "event_type": "CPI",
+      "period": "2022-11",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.858,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.777
+      },
+      "raw_data": {
+        "actual_yoy": 7.12,
+        "consensus": 7.3,
+        "surprise": 0.18,
+        "core_actual": 5.97,
+        "core_consensus": 6.1
+      },
+      "outcome": "MISS",
+      "correct": true,
+      "brier_score": 0.0497,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2022-11",
+      "event_type": "NFP",
+      "period": "2022-11",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 154242,
+        "consensus_k": 200,
+        "surprise_k": 154042
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2022-12",
+      "event_type": "CPI",
+      "period": "2022-12",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.731,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.72
+      },
+      "raw_data": {
+        "actual_yoy": 6.4,
+        "consensus": 6.5,
+        "surprise": 0.1,
+        "core_actual": 5.69,
+        "core_consensus": 5.7
+      },
+      "outcome": "MISS",
+      "correct": true,
+      "brier_score": 0.0784,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2022-12",
+      "event_type": "NFP",
+      "period": "2022-12",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 154342,
+        "consensus_k": 200,
+        "surprise_k": 154142
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2023-01",
+      "event_type": "CPI",
+      "period": "2023-01",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.786,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.745
+      },
+      "raw_data": {
+        "actual_yoy": 6.33,
+        "consensus": 6.2,
+        "surprise": 0.13,
+        "core_actual": 5.54,
+        "core_consensus": 5.5
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.065,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2023-01",
+      "event_type": "NFP",
+      "period": "2023-01",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 154776,
+        "consensus_k": 185,
+        "surprise_k": 154591
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2023-02",
+      "event_type": "CPI",
+      "period": "2023-02",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.599,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.58
+      },
+      "raw_data": {
+        "actual_yoy": 5.96,
+        "consensus": 6.0,
+        "surprise": 0.04,
+        "core_actual": 5.5,
+        "core_consensus": 5.5
+      },
+      "outcome": "MISS",
+      "correct": false,
+      "brier_score": 0.3364,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2023-02",
+      "event_type": "NFP",
+      "period": "2023-02",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 155066,
+        "consensus_k": 215,
+        "surprise_k": 154851
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2023-03",
+      "event_type": "CPI",
+      "period": "2023-03",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.943,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.815
+      },
+      "raw_data": {
+        "actual_yoy": 4.92,
+        "consensus": 5.2,
+        "surprise": 0.28,
+        "core_actual": 5.57,
+        "core_consensus": 5.6
+      },
+      "outcome": "MISS",
+      "correct": true,
+      "brier_score": 0.0342,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2023-03",
+      "event_type": "NFP",
+      "period": "2023-03",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 155134,
+        "consensus_k": 240,
+        "surprise_k": 154894
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2023-04",
+      "event_type": "CPI",
+      "period": "2023-04",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.622,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.59
+      },
+      "raw_data": {
+        "actual_yoy": 4.95,
+        "consensus": 5.0,
+        "surprise": 0.05,
+        "core_actual": 5.51,
+        "core_consensus": 5.5
+      },
+      "outcome": "MISS",
+      "correct": false,
+      "brier_score": 0.3481,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2023-04",
+      "event_type": "NFP",
+      "period": "2023-04",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 155375,
+        "consensus_k": 180,
+        "surprise_k": 155195
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2023-05",
+      "event_type": "CPI",
+      "period": "2023-05",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.574,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.649
+      },
+      "raw_data": {
+        "actual_yoy": 4.13,
+        "consensus": 4.1,
+        "surprise": 0.03,
+        "core_actual": 5.34,
+        "core_consensus": 5.3
+      },
+      "outcome": "BEAT",
+      "correct": false,
+      "brier_score": 0.4212,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2023-05",
+      "event_type": "NFP",
+      "period": "2023-05",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 155655,
+        "consensus_k": 195,
+        "surprise_k": 155460
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2023-06",
+      "event_type": "CPI",
+      "period": "2023-06",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.574,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.649
+      },
+      "raw_data": {
+        "actual_yoy": 3.07,
+        "consensus": 3.1,
+        "surprise": 0.03,
+        "core_actual": 4.85,
+        "core_consensus": 5.0
+      },
+      "outcome": "MISS",
+      "correct": false,
+      "brier_score": 0.4212,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2023-06",
+      "event_type": "NFP",
+      "period": "2023-06",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 155880,
+        "consensus_k": 225,
+        "surprise_k": 155655
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2023-07",
+      "event_type": "CPI",
+      "period": "2023-07",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.525,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.627
+      },
+      "raw_data": {
+        "actual_yoy": 3.29,
+        "consensus": 3.3,
+        "surprise": 0.01,
+        "core_actual": 4.7,
+        "core_consensus": 4.8
+      },
+      "outcome": "MISS",
+      "correct": false,
+      "brier_score": 0.3931,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2023-07",
+      "event_type": "NFP",
+      "period": "2023-07",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 156043,
+        "consensus_k": 200,
+        "surprise_k": 155843
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2023-08",
+      "event_type": "CPI",
+      "period": "2023-08",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.769,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.656
+      },
+      "raw_data": {
+        "actual_yoy": 3.72,
+        "consensus": 3.6,
+        "surprise": 0.12,
+        "core_actual": 4.4,
+        "core_consensus": 4.4
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.1183,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2023-08",
+      "event_type": "NFP",
+      "period": "2023-08",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 156261,
+        "consensus_k": 170,
+        "surprise_k": 156091
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2023-09",
+      "event_type": "CPI",
+      "period": "2023-09",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.525,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.546
+      },
+      "raw_data": {
+        "actual_yoy": 3.69,
+        "consensus": 3.7,
+        "surprise": 0.01,
+        "core_actual": 4.13,
+        "core_consensus": 4.1
+      },
+      "outcome": "MISS",
+      "correct": false,
+      "brier_score": 0.2981,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2023-09",
+      "event_type": "NFP",
+      "period": "2023-09",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 156417,
+        "consensus_k": 170,
+        "surprise_k": 156247
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2023-10",
+      "event_type": "CPI",
+      "period": "2023-10",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.622,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.671
+      },
+      "raw_data": {
+        "actual_yoy": 3.25,
+        "consensus": 3.3,
+        "surprise": 0.05,
+        "core_actual": 4.03,
+        "core_consensus": 4.1
+      },
+      "outcome": "MISS",
+      "correct": false,
+      "brier_score": 0.4502,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2023-10",
+      "event_type": "NFP",
+      "period": "2023-10",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 156576,
+        "consensus_k": 180,
+        "surprise_k": 156396
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2023-11",
+      "event_type": "CPI",
+      "period": "2023-11",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.574,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.649
+      },
+      "raw_data": {
+        "actual_yoy": 3.13,
+        "consensus": 3.1,
+        "surprise": 0.03,
+        "core_actual": 4.02,
+        "core_consensus": 4.0
+      },
+      "outcome": "BEAT",
+      "correct": false,
+      "brier_score": 0.4212,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2023-11",
+      "event_type": "NFP",
+      "period": "2023-11",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 156703,
+        "consensus_k": 180,
+        "surprise_k": 156523
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2023-12",
+      "event_type": "CPI",
+      "period": "2023-12",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.769,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.737
+      },
+      "raw_data": {
+        "actual_yoy": 3.32,
+        "consensus": 3.2,
+        "surprise": 0.12,
+        "core_actual": 3.92,
+        "core_consensus": 3.8
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0692,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2023-12",
+      "event_type": "NFP",
+      "period": "2023-12",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 156857,
+        "consensus_k": 170,
+        "surprise_k": 156687
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2024-01",
+      "event_type": "CPI",
+      "period": "2024-01",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.87,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.782
+      },
+      "raw_data": {
+        "actual_yoy": 3.09,
+        "consensus": 2.9,
+        "surprise": 0.19,
+        "core_actual": 3.86,
+        "core_consensus": 3.7
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0475,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2024-01",
+      "event_type": "NFP",
+      "period": "2024-01",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 157032,
+        "consensus_k": 185,
+        "surprise_k": 156847
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2024-02",
+      "event_type": "CPI",
+      "period": "2024-02",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.646,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.682
+      },
+      "raw_data": {
+        "actual_yoy": 3.16,
+        "consensus": 3.1,
+        "surprise": 0.06,
+        "core_actual": 3.76,
+        "core_consensus": 3.7
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.1011,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2024-02",
+      "event_type": "NFP",
+      "period": "2024-02",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 157238,
+        "consensus_k": 198,
+        "surprise_k": 157040
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2024-03",
+      "event_type": "CPI",
+      "period": "2024-03",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.711,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.711
+      },
+      "raw_data": {
+        "actual_yoy": 3.49,
+        "consensus": 3.4,
+        "surprise": 0.09,
+        "core_actual": 3.82,
+        "core_consensus": 3.8
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0835,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2024-03",
+      "event_type": "NFP",
+      "period": "2024-03",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 157466,
+        "consensus_k": 214,
+        "surprise_k": 157252
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2024-04",
+      "event_type": "CPI",
+      "period": "2024-04",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.599,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.58
+      },
+      "raw_data": {
+        "actual_yoy": 3.36,
+        "consensus": 3.4,
+        "surprise": 0.04,
+        "core_actual": 3.63,
+        "core_consensus": 3.6
+      },
+      "outcome": "MISS",
+      "correct": false,
+      "brier_score": 0.3364,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2024-04",
+      "event_type": "NFP",
+      "period": "2024-04",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 157530,
+        "consensus_k": 243,
+        "surprise_k": 157287
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2024-05",
+      "event_type": "CPI",
+      "period": "2024-05",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.832,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.765
+      },
+      "raw_data": {
+        "actual_yoy": 3.24,
+        "consensus": 3.4,
+        "surprise": 0.16,
+        "core_actual": 3.39,
+        "core_consensus": 3.5
+      },
+      "outcome": "MISS",
+      "correct": true,
+      "brier_score": 0.0552,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2024-05",
+      "event_type": "NFP",
+      "period": "2024-05",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 157608,
+        "consensus_k": 185,
+        "surprise_k": 157423
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2024-06",
+      "event_type": "CPI",
+      "period": "2024-06",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.786,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.745
+      },
+      "raw_data": {
+        "actual_yoy": 2.97,
+        "consensus": 3.1,
+        "surprise": 0.13,
+        "core_actual": 3.27,
+        "core_consensus": 3.4
+      },
+      "outcome": "MISS",
+      "correct": true,
+      "brier_score": 0.065,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2024-06",
+      "event_type": "NFP",
+      "period": "2024-06",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 157695,
+        "consensus_k": 190,
+        "surprise_k": 157505
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2024-07",
+      "event_type": "CPI",
+      "period": "2024-07",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.646,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.601
+      },
+      "raw_data": {
+        "actual_yoy": 2.94,
+        "consensus": 3.0,
+        "surprise": 0.06,
+        "core_actual": 3.23,
+        "core_consensus": 3.2
+      },
+      "outcome": "MISS",
+      "correct": true,
+      "brier_score": 0.1592,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2024-07",
+      "event_type": "NFP",
+      "period": "2024-07",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 157748,
+        "consensus_k": 175,
+        "surprise_k": 157573
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2024-08",
+      "event_type": "CPI",
+      "period": "2024-08",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.525,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.627
+      },
+      "raw_data": {
+        "actual_yoy": 2.61,
+        "consensus": 2.6,
+        "surprise": 0.01,
+        "core_actual": 3.29,
+        "core_consensus": 3.2
+      },
+      "outcome": "BEAT",
+      "correct": false,
+      "brier_score": 0.3931,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2024-08",
+      "event_type": "NFP",
+      "period": "2024-08",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 157757,
+        "consensus_k": 165,
+        "surprise_k": 157592
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2024-09",
+      "event_type": "CPI",
+      "period": "2024-09",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.786,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.745
+      },
+      "raw_data": {
+        "actual_yoy": 2.43,
+        "consensus": 2.3,
+        "surprise": 0.13,
+        "core_actual": 3.28,
+        "core_consensus": 3.2
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.065,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2024-09",
+      "event_type": "NFP",
+      "period": "2024-09",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 157912,
+        "consensus_k": 144,
+        "surprise_k": 157768
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2024-10",
+      "event_type": "CPI",
+      "period": "2024-10",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.55,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.557
+      },
+      "raw_data": {
+        "actual_yoy": 2.58,
+        "consensus": 2.6,
+        "surprise": 0.02,
+        "core_actual": 3.3,
+        "core_consensus": 3.3
+      },
+      "outcome": "MISS",
+      "correct": false,
+      "brier_score": 0.3102,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2024-10",
+      "event_type": "NFP",
+      "period": "2024-10",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 157945,
+        "consensus_k": 113,
+        "surprise_k": 157832
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2024-11",
+      "event_type": "CPI",
+      "period": "2024-11",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.55,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.557
+      },
+      "raw_data": {
+        "actual_yoy": 2.72,
+        "consensus": 2.7,
+        "surprise": 0.02,
+        "core_actual": 3.29,
+        "core_consensus": 3.3
+      },
+      "outcome": "BEAT",
+      "correct": false,
+      "brier_score": 0.3102,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2024-11",
+      "event_type": "NFP",
+      "period": "2024-11",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 158079,
+        "consensus_k": 202,
+        "surprise_k": 157877
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2024-12",
+      "event_type": "CPI",
+      "period": "2024-12",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.574,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.649
+      },
+      "raw_data": {
+        "actual_yoy": 2.87,
+        "consensus": 2.9,
+        "surprise": 0.03,
+        "core_actual": 3.21,
+        "core_consensus": 3.3
+      },
+      "outcome": "MISS",
+      "correct": false,
+      "brier_score": 0.4212,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2024-12",
+      "event_type": "NFP",
+      "period": "2024-12",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 158316,
+        "consensus_k": 160,
+        "surprise_k": 158156
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2025-01",
+      "event_type": "CPI",
+      "period": "2025-01",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.711,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.711
+      },
+      "raw_data": {
+        "actual_yoy": 2.99,
+        "consensus": 2.9,
+        "surprise": 0.09,
+        "core_actual": 3.28,
+        "core_consensus": 3.1
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0835,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2025-01",
+      "event_type": "NFP",
+      "period": "2025-01",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 158268,
+        "consensus_k": 170,
+        "surprise_k": 158098
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2025-02",
+      "event_type": "CPI",
+      "period": "2025-02",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.881,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.787
+      },
+      "raw_data": {
+        "actual_yoy": 2.8,
+        "consensus": 3.0,
+        "surprise": 0.2,
+        "core_actual": 3.14,
+        "core_consensus": 3.2
+      },
+      "outcome": "MISS",
+      "correct": true,
+      "brier_score": 0.0454,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2025-02",
+      "event_type": "NFP",
+      "period": "2025-02",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 158310,
+        "consensus_k": 159,
+        "surprise_k": 158151
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2025-03",
+      "event_type": "CPI",
+      "period": "2025-03",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.995,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.839
+      },
+      "raw_data": {
+        "actual_yoy": 2.38,
+        "consensus": 2.9,
+        "surprise": 0.52,
+        "core_actual": 2.81,
+        "core_consensus": 3.0
+      },
+      "outcome": "MISS",
+      "correct": true,
+      "brier_score": 0.0259,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2025-03",
+      "event_type": "NFP",
+      "period": "2025-03",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 158377,
+        "consensus_k": 137,
+        "surprise_k": 158240
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2025-04",
+      "event_type": "CPI",
+      "period": "2025-04",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.841
+      },
+      "raw_data": {
+        "actual_yoy": 2.33,
+        "consensus": 3.4,
+        "surprise": 1.07,
+        "core_actual": 2.78,
+        "core_consensus": 3.0
+      },
+      "outcome": "MISS",
+      "correct": true,
+      "brier_score": 0.0253,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2025-04",
+      "event_type": "NFP",
+      "period": "2025-04",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 158485,
+        "consensus_k": 130,
+        "surprise_k": 158355
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2025-05",
+      "event_type": "CPI",
+      "period": "2025-05",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.841
+      },
+      "raw_data": {
+        "actual_yoy": 2.38,
+        "consensus": 3.3,
+        "surprise": 0.92,
+        "core_actual": 2.77,
+        "core_consensus": 2.9
+      },
+      "outcome": "MISS",
+      "correct": true,
+      "brier_score": 0.0253,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2025-05",
+      "event_type": "NFP",
+      "period": "2025-05",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 158498,
+        "consensus_k": 125,
+        "surprise_k": 158373
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2025-06",
+      "event_type": "CPI",
+      "period": "2025-06",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.995,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.758
+      },
+      "raw_data": {
+        "actual_yoy": 2.68,
+        "consensus": 3.2,
+        "surprise": 0.52,
+        "core_actual": 2.91,
+        "core_consensus": 2.8
+      },
+      "outcome": "MISS",
+      "correct": true,
+      "brier_score": 0.0586,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2025-06",
+      "event_type": "NFP",
+      "period": "2025-06",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 158478,
+        "consensus_k": 132,
+        "surprise_k": 158346
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2025-07",
+      "event_type": "CPI",
+      "period": "2025-07",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.973,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.748
+      },
+      "raw_data": {
+        "actual_yoy": 2.74,
+        "consensus": 3.1,
+        "surprise": 0.36,
+        "core_actual": 3.05,
+        "core_consensus": 2.7
+      },
+      "outcome": "MISS",
+      "correct": true,
+      "brier_score": 0.0635,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2025-07",
+      "event_type": "NFP",
+      "period": "2025-07",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 158542,
+        "consensus_k": 148,
+        "surprise_k": 158394
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2025-08",
+      "event_type": "CPI",
+      "period": "2025-08",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.646,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.601
+      },
+      "raw_data": {
+        "actual_yoy": 2.94,
+        "consensus": 3.0,
+        "surprise": 0.06,
+        "core_actual": 3.11,
+        "core_consensus": 2.7
+      },
+      "outcome": "MISS",
+      "correct": true,
+      "brier_score": 0.1592,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2025-08",
+      "event_type": "NFP",
+      "period": "2025-08",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 158472,
+        "consensus_k": 145,
+        "surprise_k": 158327
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2025-09",
+      "event_type": "CPI",
+      "period": "2025-09",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.69,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.621
+      },
+      "raw_data": {
+        "actual_yoy": 3.02,
+        "consensus": 3.1,
+        "surprise": 0.08,
+        "core_actual": 3.02,
+        "core_consensus": 2.8
+      },
+      "outcome": "MISS",
+      "correct": true,
+      "brier_score": 0.1436,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2025-09",
+      "event_type": "NFP",
+      "period": "2025-09",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 158548,
+        "consensus_k": 142,
+        "surprise_k": 158406
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2025-10",
+      "event_type": "NFP",
+      "period": "2025-10",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 158408,
+        "consensus_k": 138,
+        "surprise_k": 158270
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2025-11",
+      "event_type": "CPI",
+      "period": "2025-11",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.998,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.84
+      },
+      "raw_data": {
+        "actual_yoy": 2.7,
+        "consensus": 3.3,
+        "surprise": 0.6,
+        "core_actual": 2.6,
+        "core_consensus": 2.7
+      },
+      "outcome": "MISS",
+      "correct": true,
+      "brier_score": 0.0256,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2025-11",
+      "event_type": "NFP",
+      "period": "2025-11",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 158449,
+        "consensus_k": 215,
+        "surprise_k": 158234
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2025-12",
+      "event_type": "CPI",
+      "period": "2025-12",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.999,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.841
+      },
+      "raw_data": {
+        "actual_yoy": 2.65,
+        "consensus": 3.4,
+        "surprise": 0.75,
+        "core_actual": 2.65,
+        "core_consensus": 2.7
+      },
+      "outcome": "MISS",
+      "correct": true,
+      "brier_score": 0.0253,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2025-12",
+      "event_type": "NFP",
+      "period": "2025-12",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 158432,
+        "consensus_k": 166,
+        "surprise_k": 158266
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2026-01",
+      "event_type": "CPI",
+      "period": "2026-01",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.841
+      },
+      "raw_data": {
+        "actual_yoy": 2.39,
+        "consensus": 3.2,
+        "surprise": 0.81,
+        "core_actual": 2.51,
+        "core_consensus": 2.7
+      },
+      "outcome": "MISS",
+      "correct": true,
+      "brier_score": 0.0253,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2026-01",
+      "event_type": "NFP",
+      "period": "2026-01",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 158592,
+        "consensus_k": 169,
+        "surprise_k": 158423
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2026-02",
+      "event_type": "CPI",
+      "period": "2026-02",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.841
+      },
+      "raw_data": {
+        "actual_yoy": 2.43,
+        "consensus": 3.3,
+        "surprise": 0.87,
+        "core_actual": 2.47,
+        "core_consensus": 2.7
+      },
+      "outcome": "MISS",
+      "correct": true,
+      "brier_score": 0.0253,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2026-02",
+      "event_type": "NFP",
+      "period": "2026-02",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 158459,
+        "consensus_k": 160,
+        "surprise_k": 158299
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "CPI_2026-03",
+      "event_type": "CPI",
+      "period": "2026-03",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 0.75,
+        "C_core": 0.82,
+        "C_revisions": 0.3,
+        "C_composite": 0.729
+      },
+      "raw_data": {
+        "actual_yoy": 3.29,
+        "consensus": 3.4,
+        "surprise": 0.11,
+        "core_actual": 2.6,
+        "core_consensus": 2.7
+      },
+      "outcome": "MISS",
+      "correct": true,
+      "brier_score": 0.0734,
+      "note": "simulated backtest \u00b7 not a live signal"
+    },
+    {
+      "event_id": "NFP_2026-03",
+      "event_type": "NFP",
+      "period": "2026-03",
+      "formula_version": "v1.0",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.55,
+        "C_revisions": 0.3,
+        "C_composite": 0.76
+      },
+      "raw_data": {
+        "actual_k": 158637,
+        "consensus_k": 138,
+        "surprise_k": 158499
+      },
+      "outcome": "BEAT",
+      "correct": true,
+      "brier_score": 0.0576,
+      "note": "simulated backtest \u00b7 not a live signal"
+    }
+  ]
+}
