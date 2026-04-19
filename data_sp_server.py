@@ -749,4 +749,4 @@ if __name__ == "__main__":
     print("    http://localhost:5050/fetch/fomc")
     print("    http://localhost:5050/health")
     print("\n  Press Ctrl+C to stop\n")
-    app.run(port=5050, debug=False)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5050)), debug=False)
