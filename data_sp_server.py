@@ -35,8 +35,8 @@ from datetime import datetime, timezone, timedelta
 
 app = Flask(__name__)
 CORS(app)
-
-BLS_API_KEY   = "f2186f8eed434c3aad7624ee7e9b33fc"
+import os
+BLS_API_KEY = os.environ.get("BLS_API_KEY", "")
 REVISION_FILE = "prior_values.json"
 
 BLS_SERIES = {
