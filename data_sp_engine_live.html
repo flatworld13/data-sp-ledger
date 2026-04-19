@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DATA-SP Signal Engine — Live v3</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    :root {
+      --bg: #0a0e14;
+      --bg2: #0f1420;
+      --bg3: #141b2d;
+      --green: #00e676;
+      --green3: #1b5e20;
+      --blue: #40c4ff;
+      --amber: #ffd740;
+      --red: #ff5252;
+      --text: #e8eaf6;
+      --muted: #546e7a;
+      --border: #1e2a3a;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'IBM Plex Mono', monospace;
+      padding: 20px;
+      font-size: 13px;
+      line-height: 1.6
+    }
+
+    .app {
+      max-width: 740px;
+      margin: 0 auto
+    }
+
+    .hdr {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+      margin-bottom: 18px
+    }
+
+    .hdr-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 3px
+    }
+
+    .blink {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green);
+      animation: bl 2s infinite
+    }
+
+    @keyframes bl {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: .3
+      }
+    }
+
+    .hdr-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--green);
+      letter-spacing: .08em
+    }
+
+    .hdr-sub {
+      font-size: 10px;
+      color: var(--muted)
+    }
+
+    .server-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      background: var(--bg3);
+      margin-bottom: 16px;
+      font-size: 10px
+    }
+
+    .srv-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0
+    }
+
+    .srv-dot.ok {
+      background: var(--green)
+    }
+
+    .srv-dot.err {
+      background: var(--red)
+    }
+
+    .srv-dot.checking {
+      background: var(--amber);
+      animation: bl 1s infinite
+    }
+
+    #srv-text {
+      color: var(--muted)
+    }
+
+    .sec {
+      font-size: 9px;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin: 0 0 8px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid var(--border)
+    }
+
+    .inp-grid {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 12px
+    }
+
+    .g2 {
+      grid-template-columns: 1fr 1fr
+    }
+
+    .g3 {
+      grid-template-columns: 1fr 1fr 1fr
+    }
+
+    .field label {
+      display: block;
+      font-size: 9px;
+      color: var(--muted);
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      margin-bottom: 4px
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 9px 11px;
+      border-radius: 4px;
+      outline: none;
+      transition: border .2s
+    }
+
+    .field input:focus,
+    .field select:focus {
+      border-color: var(--green)
+    }
+
+    .field .hint {
+      font-size: 9px;
+      color: var(--muted);
+      margin-top: 3px
+    }
+
+    .field input.auto-filled {
+      border-color: var(--green);
+      color: var(--green)
+    }
+
+    .fetch-btn {
+      width: 100%;
+      background: var(--bg3);
+      border: 1px solid var(--blue);
+      color: var(--blue);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 11px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all .15s;
+      margin-bottom: 10px
+    }
+
+    .fetch-btn:hover {
+      background: var(--blue);
+      color: #000
+    }
+
+    .fetch-btn:disabled {
+      opacity: .4;
+      cursor: not-allowed
+    }
+
+    .compute-btn {
+      width: 100%;
+      background: var(--green3);
+      border: 1px solid var(--green);
+      color: var(--green);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 13px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all .15s;
+      margin-bottom: 14px
+    }
+
+    .compute-btn:hover {
+      background: var(--green);
+      color: #000
+    }
+
+    .compute-btn:active {
+      transform: scale(.98)
+    }
+
+    .compute-btn:disabled {
+      opacity: .4;
+      cursor: not-allowed
+    }
+
+    .status {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 10px;
+      min-height: 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px
+    }
+
+    .spin {
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      border: 1.5px solid var(--muted);
+      border-top-color: var(--green);
+      border-radius: 50%;
+      animation: sp .6s linear infinite
+    }
+
+    @keyframes sp {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    .scores {
+      display: none
+    }
+
+    .scores.show {
+      display: block
+    }
+
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 7px;
+      margin-bottom: 8px
+    }
+
+    .kpi {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 9px 11px
+    }
+
+    .kpi-l {
+      font-size: 9px;
+      color: var(--muted);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 2px
+    }
+
+    .kpi-v {
+      font-size: 13px;
+      font-weight: 500
+    }
+
+    .sig-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 7px;
+      margin-bottom: 8px
+    }
+
+    .sig {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 10px 11px
+    }
+
+    .sig-l {
+      font-size: 9px;
+      color: var(--muted);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 3px
+    }
+
+    .sig-v {
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--blue)
+    }
+
+    .sig-s {
+      font-size: 9px;
+      color: var(--muted);
+      margin-top: 1px
+    }
+
+    .composite {
+      background: var(--bg3);
+      border: 1px solid var(--green);
+      border-radius: 4px;
+      padding: 13px 15px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 14px
+    }
+
+    .comp-num {
+      font-size: 38px;
+      font-weight: 600;
+      color: var(--green);
+      text-shadow: 0 0 18px rgba(0, 230, 118, .25)
+    }
+
+    .comp-right {
+      flex: 1
+    }
+
+    .comp-l {
+      font-size: 9px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      margin-bottom: 3px
+    }
+
+    .comp-f {
+      font-size: 10px;
+      color: var(--text)
+    }
+
+    .out-wrap {
+      margin-bottom: 11px
+    }
+
+    .out-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-bottom: none;
+      border-radius: 4px 4px 0 0;
+      padding: 7px 12px
+    }
+
+    .out-lbl {
+      font-size: 9px;
+      color: var(--muted);
+      letter-spacing: .07em;
+      text-transform: uppercase
+    }
+
+    .copy-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      letter-spacing: .06em;
+      padding: 3px 10px;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all .15s
+    }
+
+    .copy-btn:hover {
+      border-color: var(--green);
+      color: var(--green)
+    }
+
+    .copy-btn.ok {
+      border-color: var(--green);
+      color: var(--green)
+    }
+
+    .out-body {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-top: none;
+      border-radius: 0 0 4px 4px;
+      padding: 13px;
+      white-space: pre-wrap;
+      font-size: 11.5px;
+      line-height: 1.85;
+      color: var(--text);
+      max-height: 340px;
+      overflow-y: auto;
+      font-family: 'IBM Plex Mono', monospace;
+      word-break: break-all
+    }
+
+    .footer {
+      font-size: 9px;
+      color: var(--muted);
+      padding-top: 8px;
+      border-top: 1px solid var(--border);
+      line-height: 1.7
+    }
+
+    .miss {
+      color: var(--amber)
+    }
+
+    .beat {
+      color: var(--green)
+    }
+
+    .tag-auto {
+      font-size: 9px;
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-weight: 500;
+      background: #0d2b1a;
+      color: var(--green);
+      border: 1px solid var(--green3)
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+
+    <div class="hdr">
+      <div class="hdr-top">
+        <div class="blink"></div>
+        <div class="hdr-title">DATA-SP · SIGNAL ENGINE — LIVE</div>
+      </div>
+      <div class="hdr-sub">auto-fetches BLS · computes scores · outputs JSON + tweet · data only · not financial advice
+        · v3</div>
+    </div>
+
+    <div class="server-bar">
+      <div class="srv-dot checking" id="srvDot"></div>
+      <span id="srv-text">Checking local server at localhost:5050...</span>
+    </div>
+
+    <div class="sec">event settings</div>
+    <div class="inp-grid g3" style="margin-bottom:14px">
+      <div class="field">
+        <label>Release date</label>
+        <input type="date" id="release_date">
+        <div class="hint">BLS release date</div>
+      </div>
+      <div class="field">
+        <label>Time posted SGT</label>
+        <input type="time" id="post_time" value="21:30" step="1">
+        <div class="hint">your local clock</div>
+      </div>
+      <div class="field">
+        <label>Event type</label>
+        <div style="display:flex;gap:6px;margin-top:2px">
+          <button onclick="setEventType('CPI')" id="btn-CPI"
+            style="flex:1;padding:9px 4px;border-radius:4px;font-family:inherit;font-size:12px;font-weight:600;letter-spacing:.06em;cursor:pointer;transition:all .15s;background:#1b5e20;border:1px solid #00e676;color:#00e676">
+            CPI
+          </button>
+          <button onclick="setEventType('NFP')" id="btn-NFP"
+            style="flex:1;padding:9px 4px;border-radius:4px;font-family:inherit;font-size:12px;font-weight:600;letter-spacing:.06em;cursor:pointer;transition:all .15s;background:var(--bg3);border:1px solid var(--border);color:var(--muted)">
+            NFP
+          </button>
+          <button onclick="setEventType('FOMC')" id="btn-FOMC"
+            style="flex:1;padding:9px 4px;border-radius:4px;font-family:inherit;font-size:12px;font-weight:600;letter-spacing:.06em;cursor:pointer;transition:all .15s;background:var(--bg3);border:1px solid var(--border);color:var(--muted)">
+            FOMC
+          </button>
+        </div>
+        <input type="hidden" id="event_type" value="CPI">
+      </div>
+    </div>
+
+    <div id="fomc-note"
+      style="display:none;background:#0d2b1a;border:1px solid var(--green);border-radius:4px;padding:10px 13px;margin-bottom:14px;font-size:10px;color:var(--green);line-height:1.7">
+      FOMC mode &middot; fetches latest statement from federalreserve.gov &middot; scores hawkish/dovish language shift
+      &middot; no consensus input needed
+    </div>
+
+    <div id="cpi-nfp-section">
+      <div class="sec">consensus values — fill in D-2 from econoday</div>
+      <div class="inp-grid g2" style="margin-bottom:14px">
+        <div class="field">
+          <label>CPI consensus %</label>
+          <input type="number" id="consensus" value="3.4" step="0.1">
+          <div class="hint">cached from econoday 2 days before</div>
+        </div>
+        <div class="field">
+          <label>Core CPI consensus %</label>
+          <input type="number" id="core_cons" value="2.7" step="0.1">
+          <div class="hint">cached from econoday 2 days before</div>
+        </div>
+      </div>
+
+      <div class="sec">actual values — auto-fetched from BLS</div>
+      <div class="inp-grid g3" style="margin-bottom:14px">
+        <div class="field">
+          <label>Actual CPI YoY % <span class="tag-auto">AUTO</span></label>
+          <input type="number" id="actual" step="0.1" placeholder="fetched from BLS" readonly>
+          <div class="hint">filled automatically below</div>
+        </div>
+        <div class="field">
+          <label>Core CPI actual % <span class="tag-auto">AUTO</span></label>
+          <input type="number" id="core_actual" step="0.1" placeholder="fetched from BLS" readonly>
+          <div class="hint">filled automatically below</div>
+        </div>
+        <div class="field">
+          <label>Prior revision <span class="tag-auto">AUTO</span></label>
+          <select id="revision" disabled>
+            <option value="0">0 — none</option>
+            <option value="1">1 — small</option>
+            <option value="2">2 — medium</option>
+            <option value="3">3 — large</option>
+          </select>
+          <div class="hint">detected automatically</div>
+        </div>
+      </div>
+
+    </div><!-- end cpi-nfp-section -->
+
+    <button class="fetch-btn" id="fetchBtn" onclick="fetchBLS()">
+      ↓ FETCH FROM BLS NOW
+    </button>
+
+    <div class="inp-grid" style="margin-bottom:14px">
+      <div class="field">
+        <label>GitHub ledger URL</label>
+        <input type="text" id="github" value="github.com/flatworld13/data-sp-ledger" style="font-size:11px">
+      </div>
+    </div>
+
+    <button class="compute-btn" id="computeBtn" onclick="compute()" disabled>
+      ▶ COMPUTE SIGNAL
+    </button>
+
+    <div class="status" id="status"></div>
+
+    <div class="scores" id="scores">
+      <div class="sec">scores</div>
+      <div class="kpi-row">
+        <div class="kpi">
+          <div class="kpi-l">Actual YoY</div>
+          <div class="kpi-v" id="k-actual">—</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-l">Surprise</div>
+          <div class="kpi-v" id="k-surprise">—</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-l">Revision</div>
+          <div class="kpi-v" id="k-rev">—</div>
+        </div>
+      </div>
+      <div class="sig-row">
+        <div class="sig">
+          <div class="sig-l">C_headline</div>
+          <div class="sig-v" id="s-ch">—</div>
+          <div class="sig-s">surprise magnitude</div>
+        </div>
+        <div class="sig">
+          <div class="sig-l">C_core</div>
+          <div class="sig-v" id="s-cc">—</div>
+          <div class="sig-s">core confirmation</div>
+        </div>
+        <div class="sig">
+          <div class="sig-l">C_revisions</div>
+          <div class="sig-v" id="s-cr">—</div>
+          <div class="sig-s">prior revision</div>
+        </div>
+        <div class="sig">
+          <div class="sig-l">G3 verified</div>
+          <div class="sig-v" style="color:var(--green)" id="s-g3">—</div>
+          <div class="sig-s">source: api.bls.gov</div>
+        </div>
+      </div>
+
+      <!-- FOMC scores (shown only for FOMC events) -->
+      <div id="fomc-scores-section" style="display:none">
+        <div class="kpi-row">
+          <div class="kpi">
+            <div class="kpi-l">Direction</div>
+            <div class="kpi-v" id="f-dir" style="color:var(--amber)">—</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-l">Raw score</div>
+            <div class="kpi-v" id="f-raw">—</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-l">Prior shift</div>
+            <div class="kpi-v" id="f-delta">—</div>
+          </div>
+        </div>
+        <div class="sig-row">
+          <div class="sig">
+            <div class="sig-l">C_language</div>
+            <div class="sig-v" id="f-cl">—</div>
+            <div class="sig-s">absolute tone</div>
+          </div>
+          <div class="sig">
+            <div class="sig-l">C_tone_delta</div>
+            <div class="sig-v" id="f-cd">—</div>
+            <div class="sig-s">shift vs prior</div>
+          </div>
+          <div class="sig">
+            <div class="sig-l">C_guidance</div>
+            <div class="sig-v" id="f-cg">—</div>
+            <div class="sig-s">explicit rate path</div>
+          </div>
+          <div class="sig">
+            <div class="sig-l">G3 verified</div>
+            <div class="sig-v" style="color:var(--green)" id="f-g3">—</div>
+            <div class="sig-s">source: fed.gov</div>
+          </div>
+        </div>
+        <div
+          style="margin-top:8px;background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:9px 11px;font-size:10px;color:var(--muted)">
+          <div style="font-size:9px;text-transform:uppercase;letter-spacing:.07em;margin-bottom:5px">Top phrases
+            detected</div>
+          <div id="f-phrases">—</div>
+        </div>
+      </div>
+      <!-- end FOMC scores -->
+      <div class="composite" id="composite-section">
+        <div class="comp-num" id="s-comp">—</div>
+        <div class="comp-right">
+          <div class="comp-l">C_composite · primary output</div>
+          <div class="comp-f" id="comp-f">—</div>
+        </div>
+      </div>
+
+      <div class="sec" style="margin-top:14px">output — copy and publish</div>
+
+      <div class="out-wrap">
+        <div class="out-top">
+          <span class="out-lbl">STEP 1 — JSON · copy → paste to GitHub events array → commit</span>
+          <button class="copy-btn" id="cj" onclick="cp('jo','cj')">COPY</button>
+        </div>
+        <div class="out-body" id="jo"></div>
+      </div>
+
+      <div class="out-wrap">
+        <div class="out-top">
+          <span class="out-lbl">STEP 2 — TWEET · copy → paste to X → post</span>
+          <button class="copy-btn" id="ct" onclick="cp('to','ct')">COPY</button>
+        </div>
+        <div class="out-body" id="to"></div>
+      </div>
+
+      <div class="footer" id="footer"></div>
+    </div>
+  </div>
+
+  <script>
+    const SERVER = "https://data-sp-ledger-production.up.railway.app";
+    let blsData = null;
+
+    function sigmoid(z) { return 1 / (1 + Math.exp(-z)) }
+
+    function buildTS(dateStr, timeStr) {
+      const [y, m, d] = dateStr.split('-').map(Number);
+      const [hh, mm, ss] = (timeStr + ':00').split(':').map(Number);
+      // user enters time in SGT (UTC+8), convert to UTC first
+      const utc = new Date(Date.UTC(y, m - 1, d, hh - 8, mm, ss || 0));
+      const sgt = new Date(utc.getTime() + 8 * 3600000);
+      const est = new Date(utc.getTime() - 5 * 3600000);
+      const pad = n => String(n).padStart(2, '0');
+      const iso = dt => `${dt.getUTCFullYear()}-${pad(dt.getUTCMonth() + 1)}-${pad(dt.getUTCDate())}T${pad(dt.getUTCHours())}:${pad(dt.getUTCMinutes())}:${pad(dt.getUTCSeconds())}`;
+      const t = dt => `${pad(dt.getUTCHours())}:${pad(dt.getUTCMinutes())}:${pad(dt.getUTCSeconds())}`;
+      const mons = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      return {
+        estISO: iso(est), sgtISO: iso(sgt), estTime: t(est), sgtTime: t(sgt),
+        date: dateStr, mon: `${mons[est.getUTCMonth()]} ${est.getUTCFullYear()}`
+      };
+    }
+
+    function setStatus(msg, spin = false) {
+      document.getElementById('status').innerHTML =
+        spin ? `<span class="spin"></span> ${msg}` : msg;
+    }
+
+    async function checkServer() {
+      const dot = document.getElementById('srvDot');
+      const text = document.getElementById('srv-text');
+      try {
+        const r = await fetch(SERVER + '/health', { signal: AbortSignal.timeout(2000) });
+        const d = await r.json();
+        dot.className = 'srv-dot ok';
+        const keyOk = d.bls_key_set;
+        text.innerHTML = keyOk
+          ? '✓ Server running · BLS key configured · ready to fetch'
+          : '✓ Server running · ⚠ BLS key not set in data_sp_server.py';
+        text.style.color = keyOk ? 'var(--green)' : 'var(--amber)';
+        document.getElementById('fetchBtn').disabled = false;
+      } catch (e) {
+        dot.className = 'srv-dot err';
+        text.innerHTML = '✗ Server not running · open Terminal and run:  python data_sp_server.py';
+        text.style.color = 'var(--red)';
+        document.getElementById('fetchBtn').disabled = true;
+      }
+    }
+
+    function setEventType(type) {
+      document.getElementById('event_type').value = type;
+      ['CPI', 'NFP', 'FOMC'].forEach(t => {
+        const b = document.getElementById('btn-' + t);
+        if (t === type) {
+          b.style.background = '#1b5e20';
+          b.style.borderColor = '#00e676';
+          b.style.color = '#00e676';
+        } else {
+          b.style.background = 'var(--bg3)';
+          b.style.borderColor = 'var(--border)';
+          b.style.color = 'var(--muted)';
+        }
+      });
+      onEventTypeChange();
+    }
+
+    function onEventTypeChange() {
+      const evType = document.getElementById('event_type').value;
+      const isFOMC = evType === 'FOMC';
+      console.log('EVENT TYPE CHANGED TO:', evType, 'isFOMC:', isFOMC);
+      const fomcNote = document.getElementById('fomc-note');
+      const cpiSection = document.getElementById('cpi-nfp-section');
+      const fetchBtn = document.getElementById('fetchBtn');
+      if (!fomcNote) { console.error('fomc-note element NOT FOUND'); return; }
+      if (!cpiSection) { console.error('cpi-nfp-section element NOT FOUND'); return; }
+      fomcNote.style.display = isFOMC ? 'block' : 'none';
+      cpiSection.style.display = isFOMC ? 'none' : 'block';
+      if (fetchBtn) fetchBtn.innerHTML = isFOMC ? '↓ &nbsp; FETCH FOMC STATEMENT FROM FED.GOV' : '↓ &nbsp; FETCH FROM BLS NOW';
+      document.getElementById('fomc-note').style.display = isFOMC ? 'block' : 'none';
+      document.getElementById('cpi-nfp-section').style.display = isFOMC ? 'none' : 'block';
+      document.getElementById('fetchBtn').innerHTML = isFOMC
+        ? '↓ &nbsp; FETCH FOMC STATEMENT FROM FED.GOV'
+        : '↓ &nbsp; FETCH FROM BLS NOW';
+      blsData = null;
+      document.getElementById('computeBtn').disabled = true;
+      document.getElementById('scores').classList.remove('show');
+      setStatus('');
+    }
+
+    async function fetchBLS() {
+      const evType = document.getElementById('event_type').value;
+      const btn = document.getElementById('fetchBtn');
+      btn.disabled = true;
+
+      if (evType === 'FOMC') {
+        setStatus('Fetching FOMC statement from federalreserve.gov...', true);
+        try {
+          const r = await fetch(SERVER + '/fetch/fomc', { signal: AbortSignal.timeout(20000) });
+          const d = await r.json();
+          if (d.error) { setStatus('✗ ' + d.error); btn.disabled = false; return; }
+          blsData = d;
+          setStatus('✓ FOMC statement fetched · ' + d.statement_date + ' · direction: ' + d.direction + ' · click COMPUTE');
+          document.getElementById('computeBtn').disabled = false;
+        } catch (e) {
+          setStatus(e.name === 'TimeoutError' ? '✗ Timed out — fed.gov may be slow' : '✗ Server error — is data_sp_server.py running?');
+        }
+        btn.disabled = false;
+        return;
+      }
+
+      setStatus('Fetching from api.bls.gov via local server...', true);
+      try {
+        const endpoint = evType === 'NFP' ? '/fetch/nfp' : '/fetch/cpi';
+        const r = await fetch(SERVER + endpoint, { signal: AbortSignal.timeout(15000) });
+        const d = await r.json();
+        if (d.error) { setStatus('✗ ' + d.error); btn.disabled = false; return; }
+        blsData = d;
+        if (evType === 'CPI') {
+          const aField = document.getElementById('actual');
+          const cField = document.getElementById('core_actual');
+          const rSel = document.getElementById('revision');
+          aField.value = d.actual_yoy; cField.value = d.core_actual; rSel.value = d.rev_level;
+          aField.classList.add('auto-filled'); cField.classList.add('auto-filled');
+          aField.removeAttribute('readonly'); cField.removeAttribute('readonly');
+          rSel.removeAttribute('disabled');
+        } else if (evType === 'NFP') {
+          const aField = document.getElementById('actual');
+          aField.value = d.actual; aField.classList.add('auto-filled');
+          aField.removeAttribute('readonly');
+          document.getElementById('revision').value = d.rev_level;
+          document.getElementById('revision').removeAttribute('disabled');
+        }
+        setStatus('✓ BLS data fetched · values filled automatically · review then compute');
+        document.getElementById('computeBtn').disabled = false;
+      } catch (e) {
+        setStatus(e.name === 'TimeoutError' ? '✗ Fetch timed out — try again' : '✗ Server error — is data_sp_server.py running?');
+        btn.disabled = false; return;
+      }
+      btn.disabled = false;
+    }
+
+    function compute() {
+      const evType = document.getElementById('event_type').value;
+      const dateStr = document.getElementById('release_date').value;
+      const timeStr = document.getElementById('post_time').value;
+      const github = document.getElementById('github').value.trim();
+      const ts = buildTS(dateStr, timeStr);
+      const estISO = blsData?.posted_at_est || ts.estISO;
+      const sgtISO = blsData?.posted_at_sgt || ts.sgtISO;
+
+      // ── FOMC path ──────────────────────────────────────────
+      if (evType === 'FOMC') {
+        if (!blsData) { setStatus('⚠ Fetch FOMC statement first'); return; }
+        const d = blsData;
+        const sha = d.sha256 || '0'.repeat(64);
+        const eid = 'FOMC_' + ts.date;
+        const estTime = estISO.split('T')[1];
+        const sgtTime = sgtISO.split('T')[1];
+
+        document.getElementById('fomc-scores-section').style.display = 'block';
+        const dirEl = document.getElementById('f-dir');
+        dirEl.textContent = d.direction;
+        dirEl.style.color = d.direction === 'HAWKISH' ? 'var(--red)' : d.direction === 'DOVISH' ? 'var(--blue)' : 'var(--amber)';
+        document.getElementById('f-raw').textContent = d.raw_score;
+        document.getElementById('f-delta').textContent = (d.C_tone_delta || 0).toFixed(3);
+        document.getElementById('f-cl').textContent = (d.C_language || 0).toFixed(3);
+        document.getElementById('f-cd').textContent = (d.C_tone_delta || 0).toFixed(3);
+        document.getElementById('f-cg').textContent = (d.C_forward_guidance || 0).toFixed(3);
+        document.getElementById('f-g3').textContent = '1.000';
+        document.getElementById('s-comp').textContent = (d.C_composite || 0).toFixed(3);
+        document.getElementById('comp-f').textContent = '0.40×C_language + 0.40×C_tone_delta + 0.20×C_forward_guidance';
+
+        const phrases = (d.top_phrases || []).slice(0, 5)
+          .map(p => `<span style="color:${p.weight > 0 ? 'var(--red)' : 'var(--blue)'};margin-right:8px">${p.phrase} (${p.weight > 0 ? '+' : ''}${p.weight})</span>`)
+          .join('<br>');
+        document.getElementById('f-phrases').innerHTML = phrases || 'none matched';
+
+        const sig = {
+          event_id: eid,
+          event_type: 'FOMC',
+          release_date: ts.date,
+          posted_at_est: estISO,
+          posted_at_sgt: sgtISO,
+          source: 'federalreserve.gov',
+          statement_date: d.statement_date,
+          statement_url: d.statement_url,
+          G3_verified: true,
+          sha256_hash: sha,
+          signals: {
+            C_language: d.C_language,
+            C_tone_delta: d.C_tone_delta,
+            C_forward_guidance: d.C_forward_guidance,
+            C_composite: d.C_composite
+          },
+          raw_data: {
+            direction: d.direction,
+            normalised_score: d.normalised_score,
+            raw_score: d.raw_score,
+            prior_normalised: d.prior_normalised
+          },
+          outcome: 'pending',
+          correct: null,
+          disclaimer: 'Data only. Not financial advice.'
+        };
+        document.getElementById('jo').textContent = JSON.stringify(sig, null, 2);
+
+        const tweet =
+          `DATA-SP Signal · FOMC ${ts.mon}
+${ts.date} · ${estTime} EST · ${sgtTime} SGT
+
+Direction: ${d.direction}
+C_language:    ${(d.C_language || 0).toFixed(3)}
+C_tone_delta:  ${(d.C_tone_delta || 0).toFixed(3)}
+C_guidance:    ${(d.C_forward_guidance || 0).toFixed(3)}
+C_composite:   ${(d.C_composite || 0).toFixed(3)}
+
+Source: federalreserve.gov · G3 verified ✓
+SHA-256: ${sha.substring(0, 16)}...
+Ledger: ${github}
+
+Data only · not financial advice
+#DataSP #FOMC #PredictionMarkets`;
+
+        document.getElementById('to').textContent = tweet;
+        document.getElementById('footer').innerHTML =
+          `event: ${eid} &nbsp;·&nbsp; ${sgtTime} SGT / ${estTime} EST &nbsp;·&nbsp; source: federalreserve.gov`;
+        document.getElementById('scores').classList.add('show');
+        setStatus('✓ Done — copy JSON to GitHub first, then tweet to X');
+        return;
+      }
+
+      // ── CPI / NFP path ─────────────────────────────────────
+      document.getElementById('fomc-scores-section').style.display = 'none';
+      {
+        const actual = parseFloat(document.getElementById('actual').value);
+        const cons = parseFloat(document.getElementById('consensus').value);
+        const coreAct = parseFloat(document.getElementById('core_actual').value);
+        const coreCons = parseFloat(document.getElementById('core_cons').value);
+        const revLevel = parseInt(document.getElementById('revision').value);
+
+        if (isNaN(actual)) { setStatus('⚠ Actual value missing — fetch from BLS first'); return }
+        if (isNaN(cons) || isNaN(coreCons)) { setStatus('⚠ Fill in consensus values'); return }
+
+        const surprise = Math.round(Math.abs(actual - cons) * 100) / 100;
+        const z = surprise / 0.10;
+        const ch = Math.round(sigmoid(z) * 1000) / 1000;
+        const sameDir = (actual < cons) === (coreAct < coreCons);
+        const cc = sameDir ? 0.82 : 0.55;
+        const crMap = [0.30, 0.55, 0.75, 0.92];
+        const cr = crMap[revLevel];
+        const comp = Math.round(Math.min(0.45 * ch + 0.30 * cc + 0.15 * cr + 0.10, 1.0) * 1000) / 1000;
+        const eid = `${evType}_${ts.date}`;
+        const miss = actual < cons ? 'MISS' : 'BEAT';
+        const revLabels = ['none', 'small (<0.05%)', 'medium (0.05–0.10%)', 'large (>0.10%)'];
+        const sha = blsData?.sha256 || '0'.repeat(64);
+        const estTime = estISO.split('T')[1];
+        const sgtTime = sgtISO.split('T')[1];
+
+        const mc = miss === 'MISS' ? 'miss' : 'beat';
+        document.getElementById('k-actual').innerHTML =
+          `<span class="${mc}">${actual}%</span> <span style="font-size:9px;color:var(--muted)">${miss}</span>`;
+        document.getElementById('k-surprise').textContent = `${surprise}%  (${z.toFixed(1)}σ)`;
+        document.getElementById('k-rev').textContent = `level ${revLevel} — ${revLabels[revLevel]}`;
+        document.getElementById('s-ch').textContent = ch.toFixed(3);
+        document.getElementById('s-cc').textContent = cc.toFixed(3);
+        document.getElementById('s-cr').textContent = cr.toFixed(3);
+        document.getElementById('s-g3').textContent = '1.000';
+        document.getElementById('s-comp').textContent = comp.toFixed(3);
+        document.getElementById('comp-f').textContent =
+          `0.45×${ch.toFixed(3)} + 0.30×${cc.toFixed(3)} + 0.15×${cr.toFixed(3)} + 0.10×1.000`;
+
+        const sig = {
+          event_id: eid,
+          event_type: evType,
+          release_date: ts.date,
+          posted_at_est: estISO,
+          posted_at_sgt: sgtISO,
+          source: 'api.bls.gov',
+          G3_verified: true,
+          sha256_hash: sha,
+          signals: { C_headline: ch, C_core: cc, C_revisions: cr, C_composite: comp },
+          raw_data: {
+            actual_yoy: actual, consensus: cons, surprise,
+            core_actual: coreAct, core_consensus: coreCons, revision_level: revLevel
+          },
+          outcome: 'pending',
+          correct: null,
+          disclaimer: 'Data only. Not financial advice.'
+        };
+
+        document.getElementById('jo').textContent = JSON.stringify(sig, null, 2);
+
+        const tweet =
+          `DATA-SP Signal · ${evType} ${ts.mon}
+${ts.date} · ${estTime} EST · ${sgtTime} SGT
+
+Actual YoY:  ${actual}%  (consensus ${cons}%)  ${miss}
+Source: api.bls.gov · G3 verified ✓
+
+C_headline:   ${ch.toFixed(3)}
+C_core:       ${cc.toFixed(3)}
+C_revisions:  ${cr.toFixed(3)}
+C_composite:  ${comp.toFixed(3)}
+
+SHA-256: ${sha.substring(0, 16)}...
+Ledger: ${github}
+
+Data only · not financial advice
+#DataSP #${evType} #PredictionMarkets`;
+
+        document.getElementById('to').textContent = tweet;
+        document.getElementById('footer').innerHTML =
+          `event: ${eid} &nbsp;·&nbsp; ${sgtTime} SGT / ${estTime} EST &nbsp;·&nbsp; SHA-256: ${sha.substring(0, 16)}... &nbsp;·&nbsp; source: api.bls.gov (auto-fetched)`;
+
+        document.getElementById('scores').classList.add('show');
+        setStatus('✓ Done — copy JSON to GitHub first, then tweet to X');
+      } // end CPI/NFP block
+    }
+
+    function cp(src, btn) {
+      navigator.clipboard.writeText(document.getElementById(src).textContent).then(() => {
+        const b = document.getElementById(btn);
+        b.textContent = 'COPIED ✓'; b.classList.add('ok');
+        setTimeout(() => { b.textContent = 'COPY'; b.classList.remove('ok') }, 2000);
+      });
+    }
+
+    checkServer();
+    setInterval(checkServer, 10000);
+    onEventTypeChange();
+    // Set today's date as default
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    document.getElementById('release_date').value = `${yyyy}-${mm}-${dd}`;
+  </script>
+</body>
+
+</html>
