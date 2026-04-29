@@ -75,10 +75,10 @@
       "disclaimer": "Data only. Not financial advice.",
       "correction_pending": {
         "issue": "Server bug · prior_values overwrote with new score before tone_delta computation",
-        "impact": "C_tone_delta computed as 0.182 against itself · should compare against -0.38 baseline",
+        "impact": "C_tone_delta computed against itself · should compare against -0.38 baseline (March 18)",
         "expected_correction": "C_composite likely 0.45-0.55 · direction DOVISH",
         "fix_pending": "Server fix planned April 30 · corrected score will be added as separate entry",
-        "raw_data_intact": "Statement fetched correctly · sha256 hash verified against federalreserve.gov · only the tone_delta computation was affected"
+        "raw_data_intact": "Statement fetched correctly · sha256 verified · only tone_delta computation affected"
       }
     }
   ]
