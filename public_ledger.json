@@ -44,6 +44,34 @@
       "correct": true,
       "brier_score": 0.074,
       "disclaimer": "Data only. Not financial advice."
-    }
+    },
+{
+  "event_id": "FOMC_2026-04-30",
+  "event_type": "FOMC",
+  "release_date": "2026-04-30",
+  "posted_at_est": "2026-04-29T14:35:37",
+  "posted_at_sgt": "2026-04-30T02:35:37",
+  "source": "federalreserve.gov",
+  "statement_date": "20260429",
+  "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260429a.htm",
+  "G3_verified": true,
+  "sha256_hash": "cd22c1d43e70bea1bd8f3037beece7cbf60fb06006147de3fce7f102c3bc3938",
+  "signals": {
+    "C_language": 0.45,
+    "C_tone_delta": 0.182,
+    "C_forward_guidance": 0.333,
+    "C_composite": 0.319
+  },
+  "raw_data": {
+    "direction": "NEUTRAL",
+    "normalised_score": -0.1,
+    "raw_score": -1,
+    "prior_normalised": -0.1
+  },
+  "outcome": "pending",
+  "correct": null,
+  "disclaimer": "Data only. Not financial advice."
+}
+    
   ]
 }
