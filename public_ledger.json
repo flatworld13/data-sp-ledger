@@ -120,6 +120,46 @@
         "verification": "Numbers manually transcribed from BEA release text · headline PCE YoY 3.5 percent matches consensus 3.5 percent · core 3.2 percent",
         "next_step": "Tomorrow May 1 · fix server URL pattern · re-fetch this release with corrected URL · verify sha256 hash · update this entry with verified hash if values match"
       }
+    },
+    {
+      "event_id": "FOMC_2026-04-30_corrected",
+      "event_type": "FOMC",
+      "release_date": "2026-04-30",
+      "posted_at_est": "2026-04-30T20:14:39",
+      "posted_at_sgt": "2026-05-01T08:14:39",
+      "source": "federalreserve.gov",
+      "statement_date": "20260429",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260429a.htm",
+      "G3_verified": true,
+      "formula_version": "v1.0",
+      "sha256_hash": "cd22c1d43e70bea1bd8f3037beece7cbf60fb06006147de3fce7f102c3bc3938",
+      "signals": {
+        "C_language": 0.45,
+        "C_tone_delta": 0.545,
+        "C_forward_guidance": 0.333,
+        "C_composite": 0.465
+      },
+      "raw_data": {
+        "direction": "NEUTRAL",
+        "normalised_score": -0.1,
+        "raw_score": -1.0,
+        "prior_normalised": -0.38,
+        "prior_date": "20260318"
+      },
+      "outcome": "pending",
+      "correct": null,
+      "disclaimer": "Data only. Not financial advice.",
+      "supersedes": "FOMC_2026-04-30",
+      "correction_note": {
+        "issue": "Original FOMC_2026-04-30 entry had C_composite 0.319 from a self-comparison artifact · second click within ~30s of the first loaded the just-saved prior, producing tone_delta against itself.",
+        "fix_applied": "Server hardened May 1 SGT with 60s idempotency lock on /fetch/* endpoints + suspicious-value warning when current_normalised == prior_normalised + dry_run=true mode that skips save_prior() to enable safe re-fetch.",
+        "rescore_method": "/fetch/fomc?dry_run=true on patched server · GitHub-restored baseline -0.38 / 20260318 (March 18) · same Apr 29 statement (sha256 verified identical to original entry)",
+        "deltas": {
+          "C_tone_delta": "0.182 (buggy) -> 0.545 (corrected)",
+          "C_composite": "0.319 (buggy) -> 0.465 (corrected)"
+        },
+        "direction_note": "NEUTRAL preserved · the Apr 29 statement language is near-neutral with slight dovish tilt (raw_score -1.0); the dovish *shift* vs March 18 is now correctly captured in C_tone_delta (0.545 > 0.5) rather than collapsed to a self-comparison."
+      }
     }
   ]
 }
