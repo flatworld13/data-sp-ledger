@@ -200,6 +200,32 @@
       "statement_date": "20260429",
       "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260429a.htm",
       "supersedes": "FOMC_2026-04-30"
+    },
+    {
+      "event_id": "NFP_2026-05-08",
+      "event_type": "NFP",
+      "release_date": "2026-05-08",
+      "posted_at_est": "2026-05-08T10:08:22",
+      "posted_at_sgt": "2026-05-08T22:08:22",
+      "source": "api.bls.gov",
+      "G3_verified": true,
+      "formula_version": "v1.0",
+      "sha256_hash": "4b80ff500f7f2155b0421bb22f96dfa932f923e92c0ff0e941dd5dacef53a50d",
+      "signals": {
+        "C_headline": 0.599,
+        "C_core": 0.5,
+        "C_revisions": 0.3,
+        "C_composite": 0.565
+      },
+      "raw_data": {
+        "actual_K": 115.0,
+        "consensus_K": 95.0,
+        "surprise_K": 20.0,
+        "revision_level": 0
+      },
+      "outcome": "BEAT",
+      "correct": null,
+      "disclaimer": "Data only. Not financial advice."
     }
   ]
 }
