@@ -186,6 +186,63 @@
       "outcome": "BEAT",
       "correct": null,
       "disclaimer": "Data only. Not financial advice."
+    },
+    {
+      "event_id": "CPI_2026-05-12",
+      "event_type": "CPI",
+      "release_date": "2026-05-12",
+      "posted_at_est": "2026-05-12T08:51:01",
+      "posted_at_sgt": "2026-05-12T20:51:01",
+      "source": "api.bls.gov",
+      "G3_verified": true,
+      "formula_version": "v1.0",
+      "sha256_hash": "3806b836e91270242e3268f70ed80f34bd872155dd15092845808c5d76b481fb",
+      "signals": {
+        "C_headline": 0.69,
+        "C_core": 0.5,
+        "C_revisions": 0.3,
+        "C_composite": 0.606
+      },
+      "raw_data": {
+        "actual_yoy": 3.78,
+        "consensus": 3.7,
+        "surprise": 0.08,
+        "core_actual": 2.74,
+        "core_consensus": null,
+        "revision_level": 0
+      },
+      "outcome": "BEAT",
+      "correct": null,
+      "disclaimer": "Data only. Not financial advice."
+    },
+    {
+      "event_id": "PPI_2026-05-13",
+      "event_type": "PPI",
+      "release_date": "2026-05-13",
+      "posted_at_est": "2026-05-13T08:34:56",
+      "posted_at_sgt": "2026-05-13T20:34:56",
+      "source": "api.bls.gov",
+      "G3_verified": true,
+      "formula_version": "v1.0",
+      "sha256_hash": "fbf07f6314db02bae4204e02b41182c2a42beb69e456e74e831dc85886fa47ff",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.5,
+        "C_revisions": 0.3,
+        "C_composite": 0.745
+      },
+      "raw_data": {
+        "actual_yoy": 5.99,
+        "consensus": 4.9,
+        "surprise": 1.09,
+        "core_actual": null,
+        "core_consensus": null,
+        "revision_level": 0,
+        "prior_yoy": 4.27
+      },
+      "outcome": "BEAT",
+      "correct": null,
+      "disclaimer": "Data only. Not financial advice."
     }
   ]
 }
