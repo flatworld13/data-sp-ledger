@@ -254,6 +254,35 @@
       "outcome": "BEAT",
       "correct": null,
       "disclaimer": "Data only. Not financial advice."
+    },
+    {
+      "event_id": "PPI_2026-05-13",
+      "event_type": "PPI",
+      "release_date": "2026-05-13",
+      "posted_at_est": "2026-05-13T08:34:56",
+      "posted_at_sgt": "2026-05-13T20:34:56",
+      "source": "api.bls.gov",
+      "G3_verified": true,
+      "formula_version": "v1.0",
+      "sha256_hash": "fbf07f6314db02bae4204e02b41182c2a42beb69e456e74e831dc85886fa47ff",
+      "signals": {
+        "C_headline": 1.0,
+        "C_core": 0.5,
+        "C_revisions": 0.3,
+        "C_composite": 0.745
+      },
+      "raw_data": {
+        "actual_yoy": 5.99,
+        "consensus": 4.9,
+        "surprise": 1.09,
+        "core_actual": null,
+        "core_consensus": null,
+        "revision_level": 0,
+        "prior_yoy": 4.27
+      },
+      "outcome": "BEAT",
+      "correct": null,
+      "disclaimer": "Data only. Not financial advice."
     }
   ]
 }
