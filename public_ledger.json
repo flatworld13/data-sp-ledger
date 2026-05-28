@@ -283,6 +283,34 @@
       "outcome": "BEAT",
       "correct": null,
       "disclaimer": "Data only. Not financial advice."
+    },
+    {
+      "event_id": "PCE_2026-05-28",
+      "event_type": "PCE",
+      "release_date": "2026-05-28",
+      "posted_at_est": "2026-05-28T09:57:31",
+      "posted_at_sgt": "2026-05-28T21:57:31",
+      "source": "bea.gov",
+      "G3_verified": true,
+      "formula_version": "v1.0",
+      "sha256_hash": "8419d75a87895f0635e4a8b02ce6de48f7819a8a47848af67ba8c113b69f4c45",
+      "signals": {
+        "C_headline": 0.953,
+        "C_core": 0.5,
+        "C_revisions": 0.3,
+        "C_composite": 0.724
+      },
+      "raw_data": {
+        "actual_yoy": 3.8,
+        "consensus": 3.5,
+        "surprise": 0.3,
+        "core_actual": 3.3,
+        "core_consensus": null,
+        "revision_level": 0
+      },
+      "outcome": "BEAT",
+      "correct": null,
+      "disclaimer": "Data only. Not financial advice."
     }
   ]
 }
