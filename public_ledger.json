@@ -271,6 +271,32 @@
       "outcome": "BEAT",
       "correct": null,
       "disclaimer": "Data only. Not financial advice."
+    },
+    {
+      "event_id": "NFP_2026-06-05",
+      "event_type": "NFP",
+      "release_date": "2026-06-05",
+      "posted_at_est": "2026-06-05T09:56:27",
+      "posted_at_sgt": "2026-06-05T21:56:27",
+      "source": "api.bls.gov",
+      "G3_verified": true,
+      "formula_version": "v1.0",
+      "sha256_hash": "068110c82344488f12c996535d96ed4e4609c4c0c0603588ed14b2baa9a67bcc",
+      "signals": {
+        "C_headline": 0.802,
+        "C_core": 0.5,
+        "C_revisions": 0.3,
+        "C_composite": 0.656
+      },
+      "raw_data": {
+        "actual_K": 172.0,
+        "consensus_K": 102.0,
+        "surprise_K": 70.0,
+        "revision_level": 0
+      },
+      "outcome": "BEAT",
+      "correct": null,
+      "disclaimer": "Data only. Not financial advice."
     }
   ]
 }
