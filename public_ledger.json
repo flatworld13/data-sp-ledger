@@ -337,6 +337,35 @@
       "outcome": "BEAT",
       "correct": null,
       "disclaimer": "Data only. Not financial advice."
+    },
+    {
+      "event_id": "CPI_2026-06-11",
+      "event_type": "CPI",
+      "release_date": "2026-06-11",
+      "posted_at_est": "2026-06-11T08:30:00",
+      "posted_at_sgt": "2026-06-11T20:30:00",
+      "source": "api.bls.gov",
+      "G3_verified": true,
+      "formula_version": "v1.0",
+      "sha256_hash": "c0e12ce2147c70f367d45937f4111bd3f6d187e6aba7178acb6805c15df0e0f3",
+      "signals": {
+        "C_headline": 0.846,
+        "C_core": 0.5,
+        "C_revisions": 0.3,
+        "C_composite": 0.676
+      },
+      "raw_data": {
+        "actual_yoy": 4.17,
+        "consensus": 4.0,
+        "surprise": 0.17,
+        "core_actual": 2.82,
+        "core_consensus": null,
+        "revision_level": 0
+      },
+      "outcome": "BEAT",
+      "correct": null,
+      "disclaimer": "Data only. Not financial advice.",
+      "recovery_note": "Manual recovery Fri Jun 12 SGT 13:35 · auto-fire Thu Jun 11 SGT 20:30 worked but operator missed 1h commit window · pending CPI_2026-06-11 TTL'd · re-fetched + re-labeled with correct Thu Jun 11 ET publication date per Invariant 7"
     }
   ]
 }
