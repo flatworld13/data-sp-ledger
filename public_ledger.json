@@ -366,6 +366,35 @@
       "correct": null,
       "disclaimer": "Data only. Not financial advice.",
       "recovery_note": "Manual recovery Fri Jun 12 SGT 13:35 · auto-fire Thu Jun 11 SGT 20:30 worked but operator missed 1h commit window · pending CPI_2026-06-11 TTL'd · re-fetched + re-labeled with correct Thu Jun 11 ET publication date per Invariant 7"
+    },
+    {
+      "event_id": "PPI_2026-06-12",
+      "event_type": "PPI",
+      "release_date": "2026-06-12",
+      "posted_at_est": "2026-06-12T08:30:00",
+      "posted_at_sgt": "2026-06-12T20:30:00",
+      "source": "api.bls.gov",
+      "G3_verified": true,
+      "formula_version": "v1.0",
+      "sha256_hash": "f2443754546f1a4131a34d4753860a1221b1431137253c371bf5cde8e77fd980",
+      "signals": {
+        "C_headline": 0.55,
+        "C_core": 0.5,
+        "C_revisions": 0.3,
+        "C_composite": 0.542
+      },
+      "raw_data": {
+        "actual_yoy": 6.42,
+        "consensus": 6.4,
+        "surprise": 0.02,
+        "core_actual": 5.1,
+        "core_consensus": null,
+        "revision_level": 0,
+        "prior_yoy": 5.66
+      },
+      "outcome": "BEAT",
+      "correct": null,
+      "disclaimer": "Data only. Not financial advice."
     }
   ]
 }
