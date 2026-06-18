@@ -355,6 +355,52 @@
       "outcome": "BEAT",
       "correct": null,
       "disclaimer": "Data only. Not financial advice."
+    },
+    {
+      "event_id": "FOMC_2026-06-17",
+      "event_type": "FOMC",
+      "release_date": "2026-06-17",
+      "posted_at_est": "2026-06-17T14:00:00",
+      "posted_at_sgt": "2026-06-18T02:00:00",
+      "source": "federalreserve.gov",
+      "statement_date": "20260617",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617a.htm",
+      "G3_verified": true,
+      "formula_version": "v1.0",
+      "sha256_hash": "627fc136c38520650d74cb37a380d2abf0bf101f6bc435ebc50c113ac4795ea6",
+      "signals": {
+        "C_language": 0.645,
+        "C_tone_delta": 0.7,
+        "C_forward_guidance": 0.0,
+        "C_composite": 0.538
+      },
+      "raw_data": {
+        "direction": "HAWKISH",
+        "normalised_score": 0.291,
+        "raw_score": 3.0,
+        "prior_normalised": -0.1,
+        "top_phrases": [
+          {
+            "phrase": "inflation remains elevated",
+            "count": 1,
+            "weight": 3.0
+          },
+          {
+            "phrase": "price stability",
+            "count": 1,
+            "weight": 1.0
+          },
+          {
+            "phrase": "uncertainty",
+            "count": 1,
+            "weight": -1.0
+          }
+        ]
+      },
+      "outcome": "pending",
+      "correct": null,
+      "disclaimer": "Data only. Not financial advice.",
+      "recovery_note": "Manual recovery Thu Jun 18 SGT 11:30 · auto-fire Thu Jun 18 SGT 02:00 worked (scheduler_fired_real ok=true) but operator asleep · 1h commit TTL'd · Railway multi-instance bug · re-fetched via /fetch/fomc?dry_run=true · same sha256 verified · proper ET label per Invariant 7"
     }
   ]
 }
