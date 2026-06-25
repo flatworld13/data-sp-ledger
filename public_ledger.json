@@ -441,6 +441,36 @@
         },
         "direction_note": "NEUTRAL preserved · the Apr 29 statement language is near-neutral with slight dovish tilt (raw_score -1.0); the dovish *shift* vs March 18 is now correctly captured in C_tone_delta (0.545 > 0.5) rather than collapsed to a self-comparison."
       }
+    },
+    {
+      "event_id": "PCE_2026-06-25",
+      "event_type": "PCE",
+      "release_date": "2026-06-25",
+      "posted_at_est": "2026-06-25T08:30:00",
+      "posted_at_sgt": "2026-06-25T20:30:00",
+      "source": "bea.gov",
+      "release_url": "https://www.bea.gov/news/2026/personal-income-and-outlays-may-2026",
+      "G3_verified": true,
+      "formula_version": "v1.0",
+      "sha256_hash": "ede73faa0d6c23f7a614a53efd5b20149dd633635cf23f8be02dea3d2c7d125a",
+      "signals": {
+        "C_headline": 0.731,
+        "C_core": 0.5,
+        "C_revisions": 0.3,
+        "C_composite": 0.624
+      },
+      "raw_data": {
+        "actual_yoy": 4.1,
+        "consensus": 4.0,
+        "surprise": 0.1,
+        "core_actual": 3.4,
+        "core_consensus": 3.3,
+        "revision_level": 0
+      },
+      "outcome": "BEAT",
+      "correct": null,
+      "disclaimer": "Data only. Not financial advice.",
+      "recovery_note": "Manual recovery Thu Jun 25 SGT 23:45 · Railway /fetch/pce returned 'BEA page near-empty' (BEA firewalled Railway egress · same pattern as may2 BLS wedge) · pulled BEA page directly via WebFetch + computed signals client-side using FORMULA_V1"
     }
   ]
 }
