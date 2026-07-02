@@ -471,6 +471,32 @@
       "correct": null,
       "disclaimer": "Data only. Not financial advice.",
       "recovery_note": "Manual recovery Thu Jun 25 SGT 23:45 · Railway /fetch/pce returned 'BEA page near-empty' (BEA firewalled Railway egress · same pattern as may2 BLS wedge) · pulled BEA page directly via WebFetch + computed signals client-side using FORMULA_V1"
+    },
+    {
+      "event_id": "NFP_2026-07-02",
+      "event_type": "NFP",
+      "release_date": "2026-07-02",
+      "posted_at_est": "2026-07-02T09:11:06",
+      "posted_at_sgt": "2026-07-02T21:11:06",
+      "source": "api.bls.gov",
+      "G3_verified": true,
+      "formula_version": "v1.0",
+      "sha256_hash": "1c82acdb4d088658d758353cc74effca89bcf44cf94d7da9884b9fb83bc88d2a",
+      "signals": {
+        "C_headline": 0.743,
+        "C_core": 0.5,
+        "C_revisions": 0.3,
+        "C_composite": 0.629
+      },
+      "raw_data": {
+        "actual_K": 57.0,
+        "consensus_K": 110.0,
+        "surprise_K": 53.0,
+        "revision_level": 0
+      },
+      "outcome": "MISS",
+      "correct": null,
+      "disclaimer": "Data only. Not financial advice."
     }
   ]
 }
