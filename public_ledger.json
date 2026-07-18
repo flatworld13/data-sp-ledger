@@ -497,6 +497,36 @@
       "outcome": "MISS",
       "correct": null,
       "disclaimer": "Data only. Not financial advice."
+    },
+    {
+      "event_id": "CPI_2026-07-15",
+      "event_type": "CPI",
+      "release_date": "2026-07-15",
+      "posted_at_est": "2026-07-15T08:30:00",
+      "posted_at_sgt": "2026-07-15T20:30:00",
+      "source": "api.bls.gov",
+      "G3_verified": true,
+      "formula_version": "v1.0",
+      "sha256_hash": "fcd31358a9bc821fc5ee6c0fd21aff401fce60848bf20f45e748b8eeae92f71c",
+      "signals": {
+        "C_headline": 0.012,
+        "C_core": 0.5,
+        "C_revisions": 0.3,
+        "C_composite": 0.3
+      },
+      "raw_data": {
+        "actual_yoy": 3.46,
+        "consensus": 3.9,
+        "surprise": -0.44,
+        "core_actual": 2.57,
+        "core_consensus": null,
+        "revision_level": 0,
+        "prior_yoy": 4.17
+      },
+      "outcome": "MISS",
+      "correct": null,
+      "disclaimer": "Data only. Not financial advice.",
+      "recovery_note": "Manual recovery Sat Jul 18 SGT · auto-fire Jul 15 SGT 20:30 worked but pending TTL'd (Railway multi-instance) · re-fetched · proper ET label per Invariant 7 · signals computed client-side FORMULA_V1"
     }
   ]
 }
