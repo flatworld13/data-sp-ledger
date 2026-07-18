@@ -527,6 +527,36 @@
       "correct": null,
       "disclaimer": "Data only. Not financial advice.",
       "recovery_note": "Manual recovery Sat Jul 18 SGT · auto-fire Jul 15 SGT 20:30 worked but pending TTL'd (Railway multi-instance) · re-fetched · proper ET label per Invariant 7 · signals computed client-side FORMULA_V1"
+    },
+    {
+      "event_id": "PPI_2026-07-16",
+      "event_type": "PPI",
+      "release_date": "2026-07-16",
+      "posted_at_est": "2026-07-16T08:30:00",
+      "posted_at_sgt": "2026-07-16T20:30:00",
+      "source": "api.bls.gov",
+      "G3_verified": true,
+      "formula_version": "v1.0",
+      "sha256_hash": "e69b6ba9e27c00a94a831a998dd8cccc0823cb70e79ca91ea5f104d08990dbc0",
+      "signals": {
+        "C_headline": 0.0,
+        "C_core": 0.5,
+        "C_revisions": 0.3,
+        "C_composite": 0.295
+      },
+      "raw_data": {
+        "actual_yoy": 5.51,
+        "consensus": 6.3,
+        "surprise": -0.79,
+        "core_actual": 5.06,
+        "core_consensus": null,
+        "revision_level": 0,
+        "prior_yoy": 5.97
+      },
+      "outcome": "MISS",
+      "correct": null,
+      "disclaimer": "Data only. Not financial advice.",
+      "recovery_note": "Manual recovery Sat Jul 18 SGT · auto-fire Jul 16 SGT 20:30 worked but pending TTL'd (Railway multi-instance) · re-fetched · proper ET label per Invariant 7 · signals computed client-side FORMULA_V1"
     }
   ]
 }
